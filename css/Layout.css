@@ -1,0 +1,39 @@
+#parent {
+    width: 500px;
+    height: 500px;
+    background-color: #4464dd;
+    /*弹性布局*/
+    display: flex;
+    /*盒子的方向，可以横向也可以纵向*/
+    /*flex-direction: row;*/
+    flex-direction: row;
+    /*主轴（上面指定的）对齐方式*/
+    justify-content: center;
+    /*交叉轴对齐方式*/
+    align-items: center;
+    /*换行*/
+    flex-wrap: wrap;
+
+}
+
+#parent>div {
+    width: 100px;
+    height: 100px;
+    background-color: #dd4444;
+    margin: 10px;
+    position: relative;
+}
+
+#parent>div>div {
+    width: 40px;
+    height: 40px;
+    background-color: #44dd44;
+    margin: 5px;
+    position: absolute;
+    /*
+    如果父亲是绝对定位，孩子是相对定位，那后面的top和left代表的是距离父亲的左上角
+    如果父亲是相对定位，孩子也是相对定位，那后面的top和left代表的是距离孩子原本位置
+    */
+    top: 10px;
+    left: 10px;
+}

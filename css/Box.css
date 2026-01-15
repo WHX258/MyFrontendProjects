@@ -1,0 +1,22 @@
+body {
+    width: 500px;
+    height: 500px;
+    background-color: #72da78;
+    margin: 10px;
+/*
+
+*/
+}
+
+/*
+调整padding会导致box看起来更大
+因为padding扩充的颜色和background color是一样的
+*/
+div {
+    width: 100px;
+    height: 100px;
+    background-color: #ff5733;
+    margin: 10px;
+    border: 50px solid #3333ff;
+    padding: 50px;
+}

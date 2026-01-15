@@ -1,0 +1,90 @@
+/*标签选择器*/
+h1{
+    color: blue;
+    font-size: 50px;
+    margin: 50px; /*外边距*/
+    padding: 20px; /*内边距*/
+    /*
+    内边距：内容和边框之间的距离
+    外边距：边框和网页边界之间的距离
+    */
+    border: 5px solid #df24ba; /*边框*/
+}
+/*改变边框为圆角*/
+img{
+    border-radius: 15px;
+}
+/*类选择器，选择类名为...的内容*/
+.circle{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 0;
+}
+/*通配符选择器，选择所有内容*/
+*{
+    font-size: 10px;
+}
+/*
+id选择器，选择id为abc的内容
+*/
+#abc{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: black;
+}
+/*伪类选择器：当鼠标悬停在id为abc的内容上改变属性*/
+#abc:hover{
+    color: #ffffff;
+    background-color: #ff0000;
+}
+/*后代选择器：选择circle类下的p标签*/
+.circle p {
+    color: #4464dd;
+    font-size: 12px;
+}
+/*子元素选择器：用尖括号 > 选中
+子元素：某个元素的直接子节点
+后代元素：某个元素的所有子节点（包括子节点的子节点）
+*/
+.square > p {
+    color: #ee6b6b;
+    font-size: 12px;
+}
+/*相邻兄弟选择器*/
+h2 + p {
+    color: #24df4a;
+    font-size: 14px;
+}
+/*普通兄弟选择器*/
+h3 ~ p {
+    color: #df8424;
+    font-size: 16px;
+}
+
+
+/*
+优先级顺序是：
+1. !important 最高优先级
+在css属性后面加上!important，可以提高该属性的优先级，覆盖其他样式的设置。
+如：
+p {
+    color: blue !important;
+}
+2. 内联样式（HTML标签内的style属性）
+3. ID选择器
+4. 类选择器、属性选择器和伪类选择器
+5. 元素选择器和伪元素选择器
+6. 通配符选择器 * 最低优先级
+
+为什么css定义了id选择器，html的内部样式也定义了id选择器，最后显示的是css文件的样式呢？
+因为浏览器会按照后定义的样式覆盖先定义的样式，所以css文件的样式会覆盖html内部样式的样式。
+假如html文件的link标签放在style标签前面，那就先显示css文件的样式了
+*/

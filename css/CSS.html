@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 内部样式，写在head的style标签里，方便集中管理和修改 -->
+    <style>
+        /* id选择器：如果id = abc 就匹配下面的样式 */
+        #abc {
+            width: 200px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: lightblue;
+        }
+
+        /* 标签选择器：选择所有div标签，设置字体大小和颜色 */
+        div {
+          font-size: 30px;
+          color: brown;
+        }
+    </style>
+
+    <!--
+    外部样式，写在单独的css文件里，通过link标签引入，方便多个页面共享样式
+    rel是关系，stylesheet表示这是一个样式表
+    -->
+    <link rel="stylesheet" href="./Style.css">
+    </head>
+<body>
+
+  <!-- 内联，直接在标签里写样式，内容冗长，且调整不方便，不推荐使用 -->
+  <div style="width: 300px; height: 100px;background-color: bisque; border-radius: 10px">
+      这次学习CSS
+  </div>
+  <!-- id选择器-->
+  <div id="abc">内部样式</div>
+  <h1>一级标题</h1>
+
+  <!-- 类选择器class：选择 class="circle" 的元素，可以在css文件设置字体大小和颜色边框等 -->
+  <div class="circle"> 1
+      <div>
+          <p>圆</p>
+      </div>
+      <p>圆</p>
+  </div>
+  <div class="square"> 2
+      <div>
+            <p>方</p>
+      </div>
+      <p>方</p>
+  </div>
+
+
+
+<!--相邻兄弟选择器示例-->
+<h2>相邻兄弟选择器示例</h2>
+<p>这是第一个段落。</p>
+<p>这是第二个段落。</p>
+
+<!--普通兄弟选择器-->
+<h3>普通兄弟选择器示例</h3>
+<p>这是第一个段落。</p>
+<p>这是第二个段落。</p>
+<p>这是第三个段落。</p>
+
+
+</body>
+</html>
