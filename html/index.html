@@ -49,9 +49,58 @@
           </tr>
         </tbody>
       </table>
-    
+
+    <!-- 无序unorderedList列表 -->
+    <ul>
+      <li>Coffee</li>
+      <li>Milk</li>
+    </ul>
+
+    <!-- 有序orderedList列表，调节type可更换标号 -->
+    <ol type="A">
+      <li>Coffee</li>
+      <li>Milk</li>
+    </ol>
+
+    <!-- 自定义列表definedList，自定义列表项是<dt>，每个自定义列表项的定义以 dd 开始。 -->
+    <dl>
+      <dt>Coffee</dt>
+      <dd>- black hot drink</dd>
+        <dd>- can be with milk or sugar</dd>
+      <dt>Milk</dt>
+      <dd>- white cold drink</dd>
+    </dl>
+
+    <!-- 块元素
+      div（division）
+      块元素在页面中以块的形式显示，通常会独自占据一整行或多个整行，
+      并且会自动在其前后添加换行符<br>。
+      块元素通常部会占据其父容器的整个可用宽度 (除非特定)。
+      可以对其设置宽度、高度、边距和内边距等样式履性，
+      可以包含其他块级元素和行内元素，如:<div>、<p>、<h1>-<h6>、<ul>、<ol>、<li>、<hr>等。
+      <hr>是水平线元素，用于在内容之间创建分隔线。
+    -->
+    <div style="background-color:rgba(150, 30, 134, 0.5);">观察背景（rgba）用的块元素</div>
+    <div style="background-color: #29ca87b6 ;">观察背景（十六进制）用的块元素</div>
+    <div>
+      <span>行内元素1</span>
+      <hr> <!-- 水平线元素 -->
+      <span>行内元素2</span>
+      <p>这是一个块级元素的例子。</p>
+    </div>
+    <!--
+      行内块元素： style="display: inline-block;"
+      行内元素不会独自占据一整行，而是与其他行内元素在同一行内排列。
+      可以设置宽高
+    -->
+    <span style="display: inline-block;">
+      这是一个行内块元素。
+    </span>
+    <span>行内元素3</span>
+
+
 </body>
- 
+
 <footer>
     <p>版权所有 &copy; 2024</p>
 </footer>
