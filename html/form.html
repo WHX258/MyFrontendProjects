@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestForm</title>
+</head>
+<body>
+    
+    <!-- form 供用户输入数据，虽然叫表单，但是不是表，表是table
+        action 定义了表单数据提交的目标 URL，
+        method 定义了提交数据的 HTTP 方法（这里使用的是 "post"）
+    -->
+    <form action="/8080" method="post">
+        <!-- label 是说明输入框的，for 和输入框的 id 是一对 -->
+        <!-- input 输入框
+            type 用于创建：文本输入框、密码框、单选按钮、复选框。
+            id 说明这个input对应哪个label，
+            name 用于标识表单字段 
+                表单字段：提交数据时，服务器端用来接收数据的变量名，比如后端有个方法用 getParameter("name") 来获取用户名
+            requied 表示该输入框为必填项，可以不填写
+            checked 表示该选项默认被选中
+        -->
+        <label for="name">用户名:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <br> <!-- 换行标签 -->
+
+        <!-- 密码输入框 -->
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <!-- 单选按钮 -->
+        <!--
+            这里label标签没有 for 属性，是因为单选按钮通常成组出现，
+            value是提交时传递给后端的值
+        -->
+        <label>性别:</label>
+        <input type="radio" id="male" name="gender" value="male" checked>
+        <label for="male">男</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">女</label>
+        <br>
+        <!-- 复选框 -->
+        <input type="checkbox" id="subscribe" name="subscribe" checked>
+        <label for="subscribe">订阅推送信息</label>
+        <br>
+        <!-- 下拉列表 -->
+        <label for="country">国家:</label>
+        <select id="country" name="country">
+            <option value="cn">CN</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+        </select>
+        <br>
+        <!-- 提交按钮 -->
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
