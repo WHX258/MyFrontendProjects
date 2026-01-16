@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入vue -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 括号内渲染的是data -->
+        {{ message }}
+    </div>
+
+    <script>
+        // 创建一个Vue应用实例，为什么是const？因为实例不需要修改
+        const HelloWorld = {
+            // data是vue实例的数据选项，必须是一个函数，返回一个对象
+            // : 的意思是 key-value 对，说明data的值是个函数
+            // return后面的{}是一个对象，里面可以定义多个属性，比如message
+            data: function() {
+                return {
+                    message: 'Hello Vue 3!'
+                }
+            }
+        }
+        // 挂载Vue应用实例到id为app的元素上（上面的div）
+        Vue.createApp(HelloWorld).mount('#app')
+
+    </script>
+</body>
+</html>
