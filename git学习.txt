@@ -4,7 +4,7 @@
     先说操作再补充一下理论知识。
 
 
-一、IDEA中操作git：
+一、IDEA中操作git（重要）：
 
 本地编辑了一些文件，下一步想要提交，首先需要更新（pull），然后再提交（push），避免覆盖。
 pull并不会覆盖本地修改的文件，会将远程仓库的更新合并到本地。
@@ -43,6 +43,20 @@ pull和push在左下角的git插件中右键当前分支就有显示。
     b. git插件中右键主分支，点击更新，现在主分支更新到最新了
     c. 切换工作区到自己的分支，
     d. 右键主分支，选择合并到当前分支，即可完成更新。
+
+merge时如果冲突了怎么办？
+1. Git会标记冲突的文件，使用<<<<<<<、=======、>>>>>>>标记冲突区域
+2. 手动编辑这些文件，解决冲突
+3. 使用git add将解决冲突后的文件添加到暂存区
+4. 使用git commit完成合并提交
+比如：
+    <<<<< HEAD
+    内容A
+    =======
+    内容B
+    >>>>>> branch-name
+    表示内容A是当前分支的内容，内容B是要合并进来的分支的内容。
+修改时删除标记符号，保留想要的内容以后再add和commit。
 
 
 二、一些基本理论：
@@ -115,7 +129,8 @@ b. git commit 时，发生了什么？
         查看这个哈希值，包含tree、作者信息、时间戳、父commit 对象。
             继续查看tree对象，内容是 这次commit的文件的 索引。
     2. 在.git/refs/heads/目录下生成head引用，内容是这次的commit 对象。
-        .git/HEAD文件指向当前分支的引用，比如 refs/heads/main，如果checkout到其他分支，HEAD会更新为指向该分支的引用。
+        关于HEAD：.git/HEAD文件指向当前分支最新commit的引用，
+                比如 refs/heads/main，如果checkout到其他分支，HEAD会更新为指向其他分支的引用。
     3. 在.git/logs/refs/heads/目录下生成日志文件，记录了每次commit的历史。
         可以用git reflog查看这些日志，包含每次commit的哈希值、作者信息、时间戳以及操作类型（commit、merge等）。
 * 如果commit包含了文件夹，那么这次commit生成的tree 会包含另一个tree，存储新文件夹下文件的索引（文件名 + 对应的blob对象）。
@@ -147,6 +162,15 @@ d. 什么是hook？
         pre-push：在推送之前运行，可以用于运行测试、验证代码等
 
 
+e. 什么是logs？
+    Git logs记录了对引用（refs）的更改历史。
+    这些日志存放在.git/logs目录下，可以通过git reflog命令查看。
+    reflog记录了每次对HEAD的更改，包括commit、checkout、merge等操作。
+    通过reflog可以找回丢失的提交，查看历史操作等。
+
+
+
+
 四、Linux下git的常用命令
 
 1. git init：初始化一个新的Git仓库
@@ -156,7 +180,8 @@ d. 什么是hook？
 5. git commit -m "message"：提交暂存区的更改到本地仓库
 6. git pull：从远程仓库拉取最新的更改并合并到当前分支
 7. git push：将本地仓库的更改推送到远程仓库
-8. git branch：列出所有分支
+8. git branch：列出所有分支；创建新分支：git branch <branch>；
+    强制删除分支：git branch -D <branch>；如果--delete，则会检查分支是否已合并，未合并则报错
 9. git checkout <branch>：切换到指定分支
 10. git merge <branch>：将指定分支合并到当前分支
 
