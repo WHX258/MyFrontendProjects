@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入vue -->
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <h3>count 的值为:{{count}}</h3>
+<!--  vue中事件的监听使用了v-on（代替了html原生的on-click），可以简写为@-->
+<!--  on开头的都可以用@-->
+<!--  后面可以跟一个方法或者表达式-->
+  <button v-on:click="addCount">+1</button>
+  <button @click="count+=1">+1</button>
+</div>
+
+<script>
+  // 2. 创建一个Vue应用实例
+  const vm = {
+    data: function() {
+      return {
+        count: 0,
+      }
+    },
+    methods: {
+      addCount: function() {
+        this.count += 1 // this代表了Vue实例对象
+      }
+    }
+  }
+  // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
+  Vue.createApp(vm).mount('#app')
+
+</script>
+</body>
+</html>

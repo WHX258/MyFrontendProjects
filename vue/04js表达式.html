@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入vue -->
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+<!--vue 实例要控制的DOM 区域-->
+<div id="app">
+<!--  可以在这个花括号里写表达式或者变量-->
+  <p>{{number + 1}}</p>
+  <p>{{ok ?'True':'False'}}</p>
+  <p>{{message.split('').reverse().join('')}}</p>
+  <p :id = "'list-' + id">xxx</p>
+  <p>{{user.name}}</p>
+</div>
+
+<script>
+  // 2. 创建一个Vue应用实例
+  const vm = {
+    data: function() {
+      return {
+        number :9 ,
+        ok: false,
+        message:'ABC',
+        id: 3,
+        user : {name:'zs'}
+      }
+    }
+  }
+  // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
+  Vue.createApp(vm).mount('#app')
+
+</script>
+</body>
+</html>

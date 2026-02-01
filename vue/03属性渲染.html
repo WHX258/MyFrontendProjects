@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 引入vue -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+<div id="app">
+    <a :href="link">百度</a>
+    <input type="text" :placeholder="inputValue">
+    <img :src="imgSrc" :style="{width:w}" alt="">
+</div>
+
+<script>
+    // 2. 创建一个Vue应用实例
+    const vm = {
+        data: function() {
+            return {
+                // 属性渲染
+                link:"http://www.baidu.com",
+                //文本框的占位符内容
+                inputValue:'请输入内容',
+                //图片的 src 地址
+                imgSrc:'https://pic4.zhimg.com/v2-c34c61a90095abb8713de9d1dca7ec7b_r.jpg',
+                w:'500px'
+            }
+        }
+    }
+    // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
+    Vue.createApp(vm).mount('#app')
+
+</script>
+</body>
+</html>

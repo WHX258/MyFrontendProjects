@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 引入vue -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <p>姓名：{{ name }}</p>
+        <p>性别：{{ sex }}</p>
+        <p>{{desc}}</p>
+        <!--注意花括号遇到html内容时，不会渲染，这里直接显示了href，需要使用v-html指令-->
+        <p v-html="desc"></p>
+    </div>
+
+    <script>
+        // 2. 创建一个Vue应用实例
+        const vm = {
+            data: function() {
+                return {
+                    // 内容渲染
+                    name: 'Hello Vue 3!',
+                    sex: '男',
+                    desc: '<a href="https://www.vuejs.org" target="_blank">Vue官网链接</a>'
+                }
+            }
+        }
+        // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
+        Vue.createApp(vm).mount('#app')
+
+    </script>
+</body>
+</html>
