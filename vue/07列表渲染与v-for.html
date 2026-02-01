@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 引入vue -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul><li v-for="(user,i) in userList">索引是:{{i}}，姓名是:{{user.name}}</li></ul>
+</div>
+
+<script>
+    // 2. 创建一个Vue应用实例
+    const vm = {
+        data: function() {
+            return {
+                userList:[
+                    {id:1,name:'zhangsan'},
+                    {id:2,name:'lisi'},
+                    {id:3,name:'wangwu'}
+                ]
+            }
+        },
+    }
+    // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
+    Vue.createApp(vm).mount('#app')
+
+</script>
+</body>
+</html>

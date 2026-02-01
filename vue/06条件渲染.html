@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. 引入vue -->
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+  <button @click = "flag=!flag">Toggle Flag</button>
+<!--  v-if如果是false根本不会被创建，v-show会被创建但不显示，如果频繁更换flag使用v-show，性能好 -->
+  <p v-if = "flag">请求成功---被 v-if 控制</p>
+  <p v-show="flag">请求成功---被v-show 控制</p>
+
+<!--  还有v-else v-else-if，这和if/else if/else语句是一样的-->
+  <p v-if="num >0.5">随机数>0.5</p>
+  <p v-else>随机数 ≤0.5</p>
+  <hr />
+<!--
+    三个等号和两个等号的区别：
+    三个等号：值和类型都相等才返回true
+    两个等号：值相等就返回true，会进行类型转换
+-->
+  <p v-if="type ==='A'">优秀</p>
+  <p v-else-if="type ==='B'">良好</p>
+  <p v-else-if="type ==='C'">一般</p>
+  <p v-else>差</p>
+
+  <div v-show="a">
+    测试
+  </div>
+  <button @click="a=!a">点击</button>
+</div>
+
+<script>
+  // 2. 创建一个Vue应用实例
+  const vm = {
+    data: function() {
+      return {
+        flag: false,
+        num: Math.random(),
+        type: 'B',
+        a: true,
+      }
+    },
+  }
+  // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
+  Vue.createApp(vm).mount('#app')
+</script>
+</body>
+</html>
