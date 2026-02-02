@@ -10,7 +10,29 @@
 <body>
 
 <div id="app">
-    <ul><li v-for="(user,i) in userList">索引是:{{i}}，姓名是:{{user.name}}</li></ul>
+    <div>
+        <!--
+            什么是v-model双向数据绑定，和:value单向绑定的区别？
+            v-model会帮我们自动监听input的变化，并把变化后的值赋值给name
+            而:value只是把name的值赋值给input的value属性，输入后name不会变，还是''
+        -->
+        <input type="text" v-model="name">
+        <button @click="addNewUser">添加</button>
+    </div>
+        <!--
+            这里的i是索引，从0开始，user是当前遍历到的对象
+            `key`标签的作用：追踪每个节点的身份，
+            比如在列表增删/重排时，保持每个项的内部状态（例如输入框、checkbox、组件状态）不会错位或混乱。
+            这里checkbox如果没有key的话，勾选第一项，然后增加一项后，checkbox的选中状态还是第一行，
+            而我们期待的是新增一项后，checkbox的选中状态应该是第二行
+            key设置为自己设计的id字段而不能是索引i，因为索引i会随着增删而自动变化，而id是唯一不变的
+        -->
+    <ul>
+        <li v-for="(user,i) in userList" :key="user.id">
+            <input type="checkbox">
+            ID是: {{i}}，姓名是:{{user.name}}
+        </li>
+    </ul>
 </div>
 
 <script>
@@ -22,9 +44,19 @@
                     {id:1,name:'zhangsan'},
                     {id:2,name:'lisi'},
                     {id:3,name:'wangwu'}
-                ]
+                ],
+                name:'',
+                nextId:4,
             }
         },
+        methods:{
+            addNewUser(){
+                // unshift在数组的开头添加一个或多个元素，并返回新的数组长度。
+                this.userList.unshift( { id:this.nextId, name: this.name } )
+                this.name = '' // 清空输入框
+                this.nextId++
+            }
+        }
     }
     // 3. 挂载Vue应用实例到id为app的元素上（上面的div）
     Vue.createApp(vm).mount('#app')
