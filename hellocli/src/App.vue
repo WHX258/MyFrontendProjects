@@ -1,17 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <Hello/>
+  <Movie v-for="movie in movies" :key="movie.id" :title = "movie.title" :rating = "movie.rating"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Hello from './components/Hello.vue'
+import Movie  from "./components/Movie.vue";
 
 export default {
   name: 'App',
+  computed: {
+  },
+  data:function () {
+    return {
+      movies: [
+        { id:1, title: 'Movie 1', rating:8.8 },
+        { id:2, title: 'Movie 2', rating:8.9 },
+        { id:3, title: 'Movie 3', rating:8.7 }
+      ]
+    }
+  },
   components: {
-    HelloWorld,
-    Hello
+    Movie
   }
 }
 </script>
