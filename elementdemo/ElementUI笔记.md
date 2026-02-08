@@ -19,7 +19,7 @@ new Vue({
   render: h => h(App)
 });
 ```
-然后在组件中就可以直接使用Element提供的组件了，例如下面的表格：
+然后在组件中就可以直接使用Element提供的组件了，例如下面的表格`HelloWorld.vue`：
 ```vue
 <template>
   <el-table
@@ -67,4 +67,35 @@ export default {
   }
 }
 </script>
+```
+然后在根组件`App.vue`中添加这一部分，例如：
+```vue
+<template>
+  <div id="app">
+    <HelloWorld/>
+  </div>
+</template>
+
+<script>
+  import HelloWorld from './components/HelloWorld.vue'
+
+  export default {
+    name: 'App',
+    components: {
+      HelloWorld
+    }
+  }
+</script>
+
+<style>
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+</style>
+
 ```

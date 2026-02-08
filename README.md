@@ -25,3 +25,6 @@ https://blog.csdn.net/A1225438764/article/details/157804105?spm=1001.2014.3001.5
 
 # git
 https://blog.csdn.net/A1225438764/article/details/157295798?spm=1001.2014.3001.5502
+
+# 缺陷管理jira
+https://blog.csdn.net/A1225438764/article/details/157847151?spm=1001.2014.3001.5502
