@@ -9,17 +9,17 @@
         multiple
         style="flex:1; min-width:100px; width:100%;">
 
-      <div class="el-upload__text" style="height:100%; display:flex; align-items:center; justify-content:center;">
+      <div style="height:100%; display:flex; align-items:center; justify-content:center;">
         <font size="5">
-          拖动文件到此 <br>或 <br>点击该虚线方块上传
+          拖动文件到此 <br> 或 <br> 点击该虚线方块上传
         </font>
       </div>
 
       <template #tip>
         <div class="el-upload__tip">
           单次上传最大为100MB，一次上传一个文件
-
         </div>
+
       </template>
     </el-upload>
 

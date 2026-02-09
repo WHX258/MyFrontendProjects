@@ -1,12 +1,14 @@
 <template>
   <div>
+<!-- 有files且文件数组长度大于零才渲染-->
     <el-table v-if="files && files.length" :data="files" stripe style="width:100%">
       <el-table-column prop="fileName" label="文件名"></el-table-column>
       <el-table-column label="大小 (MB)" width="140">
-        <template slot-scope="scope">{{ formatMB(scope.row.size) }}</template>
+        <template v-slot="scope">{{ formatMB(scope.row.size) }}</template>
       </el-table-column>
       <el-table-column label="操作" width="320">
-        <template slot-scope="scope">
+<!--        scope意思是当前行的数据对象，scope.row就是当前行的数据对象，scope.column是当前列的数据对象，scope.$index是当前行的索引。-->
+        <template v-slot="scope">
           <el-button :href="downloadUri(scope.row)" type="primary" size="mini" target="_blank">下载</el-button>
           <el-button size="mini" @click="$emit('parse-file', scope.row)">解析</el-button>
           <el-button size="mini" @click="viewFile(scope.row)">浏览</el-button>
