@@ -21,13 +21,10 @@
           @reload="reloadList">
       </file-list>
       <!--
-      加载子组件parse-dialog，
-      并通过 :visible.sync="parseDialogVisible" 进行 文件名和解析结果 的双向绑定
-      和v-model的区别在于，v-model默认绑定的是value属性和input事件，而这里我们需要绑定visible属性和visible-change事件，
-      不是value和input事件，所以需要使用.sync修饰符来实现双向绑定。
+      加载子组件parse-dialog，进行 文件名和解析结果 的双向绑定
       -->
       <parse-dialog
-          :visible.sync="parseDialogVisible"
+          v-model="parseDialogVisible"
           :file-name="parseFileName"
           :lines="parseLines">
       </parse-dialog>
